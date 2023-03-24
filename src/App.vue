@@ -25,6 +25,7 @@
     position: fixed;
     top: 0;
     right: 0;
+    z-index: 9;
     a {
       display: inline-block;
       margin: 0 6px;
