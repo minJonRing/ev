@@ -3,6 +3,9 @@ import { createRouter, createWebHashHistory } from "vue-router";
 // 1. 定义路由组件.
 import Home from "@/components/home/index.vue";
 import About from "@/components/about/index.vue";
+import Earth from "@/components/earth/index.vue";
+import Compass from "@/components/compass/index.vue";
+import Slide from "@/components/slide/index.vue";
 
 // 2. 定义一些路由
 const routes = [
@@ -15,6 +18,21 @@ const routes = [
     path: "/about",
     component: About,
     name: "About",
+  },
+   {
+    path: "/earth",
+    component: Earth,
+    name: "Earth",
+  },
+   {
+    path: "/compass",
+    component: Compass,
+    name: "Compass",
+  },
+  {
+    path: "/slide",
+    component: Slide,
+    name: "Slide",
   },
 ];
 

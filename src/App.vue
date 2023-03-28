@@ -3,6 +3,9 @@
     <div class="nav">
       <router-link to="/">home</router-link>
       <router-link to="/about">about</router-link>
+        <router-link to="/earth">earth</router-link>
+          <router-link to="/compass">compass</router-link>
+            <router-link to="/slide">slide</router-link>
     </div>
     <transition name="slide-fade">
       <router-view v-slot="{ Component, route }">
