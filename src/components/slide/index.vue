@@ -42,6 +42,22 @@ export default {
     Swiper, SwiperSlide
   },
   setup(){
+    console.log(1)
+    new Promise((r)=>{
+      console.log(2)
+      setTimeout(() => {
+        console.log(3)
+      }, 0);
+      r()
+    })
+    console.log(4)
+    Promise.resolve(5).then((v)=>{
+      console.log(v)
+    })
+    console.log(6)
+    setTimeout(() => {
+      console.log(7)
+    }, 0);
     return {
       cjt,
       modules: [Scrollbar, FreeMode, Mousewheel],
