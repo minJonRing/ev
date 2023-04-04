@@ -2,11 +2,11 @@
   <div class="earth">
     <div class="orbit-system">
       <div class="system">
-        <div class="satellite-orbit" :style="{ transform: `rotateZ(-${(active-1) * 90}deg` }">
-          <div class="satellite" :style="{ transform: `rotateZ(${360 / active}deg) rotateY(15deg) rotateX(-75deg)` }" @click="handleClick(1)">SAT1</div>
-          <div class="satellite2" :style="{ transform: `rotateZ(${360 / active}deg) rotateY(15deg) rotateX(-75deg)` }" @click="handleClick(2)">SAT2</div>
-          <div class="satellite3" :style="{ transform: `rotateZ(${360 / active}deg) rotateY(15deg) rotateX(-75deg)` }" @click="handleClick(3)">SAT3</div>
-          <div class="satellite4" :style="{ transform: `rotateZ(${360 / active}deg) rotateY(15deg) rotateX(-75deg)` }" @click="handleClick(4)">SAT4</div>
+        <div class="satellite-orbit" :style="{ transform: `rotateZ(${rotate}deg` }">
+          <div class="satellite" :style="{ transform: `rotateZ(${active * 90}deg) rotateY(15deg) rotateX(-75deg)` }" @click="handleClick(0)">SAT1</div>
+          <div class="satellite2" :style="{ transform: `rotateZ(${active * 90}deg) rotateY(15deg) rotateX(-75deg)` }" @click="handleClick(1)">SAT2</div>
+          <div class="satellite3" :style="{ transform: `rotateZ(${active * 90}deg) rotateY(15deg) rotateX(-75deg)` }" @click="handleClick(2)">SAT3</div>
+          <div class="satellite4" :style="{ transform: `rotateZ(${active * 90}deg) rotateY(15deg) rotateX(-75deg)` }" @click="handleClick(3)">SAT4</div>
         </div>
         <div class="planet">PLANET</div>
       </div>
@@ -19,9 +19,25 @@ export default {
   name:'Earth',
   data(){
     return {
-      active:1
+      active:0,
+      rotate:0
     }
   },
+  watch:{
+    active(data,old){
+      console.log(old,data)
+      if(old == 0 && data ==3){
+        this.rotate = -90
+        console.log(this.rotate)
+        return 
+      }else if(old === 3 && data == 0){
+         this.rotate = 360
+         return
+      }else{
+        this.rotate = this.active * 90
+      }
+    }
+  },  
   methods:{
     handleClick(i){
       this.active = i
@@ -57,7 +73,7 @@ export default {
   top: 50%;
   left: 50%;
   transform-style: preserve-3d;
-   transition-duration: 10000ms;
+   transition-duration: 5000ms;
 }
 
 .planet {
@@ -99,6 +115,25 @@ export default {
   100% {
       transform: rotateZ(360deg);
   }
+}
+
+.satellite {
+  top: 100%;
+  width: 3em;
+  height: 3em;
+  margin-top: -1.5em;
+  margin-left: -1.5em;
+  
+  color: black;
+  background-color: #999;
+  border-radius: 50%;
+  text-align: center;
+  line-height: 3em;
+  
+  // animation-name: invert-orbit;
+  // animation-duration: 10s;
+  // animation-iteration-count: infinite;
+  // animation-timing-function: linear;
 }
 
 .satellite2{
@@ -158,24 +193,7 @@ export default {
   // animation-timing-function: linear;
 }
 
-.satellite {
-  top: 100%;
-  width: 3em;
-  height: 3em;
-  margin-top: -1.5em;
-  margin-left: -1.5em;
-  
-  color: black;
-  background-color: #999;
-  border-radius: 50%;
-  text-align: center;
-  line-height: 3em;
-  
-  // animation-name: invert-orbit;
-  // animation-duration: 10s;
-  // animation-iteration-count: infinite;
-  // animation-timing-function: linear;
-}
+
 
 
 /*
