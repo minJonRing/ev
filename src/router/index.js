@@ -7,6 +7,7 @@ import Earth from "@/components/earth/index.vue";
 import Compass from "@/components/compass/index.vue";
 import Slide from "@/components/slide/index.vue";
 import D3 from "@/components/3d/index.vue";
+import D3js from "@/components/d3/index.vue";
 
 // 2. 定义一些路由
 const routes = [
@@ -39,6 +40,11 @@ const routes = [
     path: "/d3",
     component: D3,
     name: "D3",
+  },
+  {
+    path: "/d3js",
+    component: D3js,
+    name: "D3js",
   },
 ];
 

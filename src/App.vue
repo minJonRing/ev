@@ -7,6 +7,7 @@
           <router-link to="/compass">compass</router-link>
             <router-link to="/slide">slide</router-link>
               <router-link to="/d3">d3</router-link>
+                <router-link to="/D3js">D3js</router-link>
     </div>
     <transition name="slide-fade">
       <router-view v-slot="{ Component, route }">

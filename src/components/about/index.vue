@@ -2,41 +2,7 @@
 export default {
   name: "About",
   mounted(){
-    const A = function(){
-      this.name = 'a'
-    }
-    const AA = function () {
-      this.names = 'AA'
-    }
-
-    let B = function(){
-
-    }
-    B.prototype = {...new A(),...new AA()}
-    let c = new B()
-    console.log(c.name,c.names)
-
-    class aa {
-      constructor(){
-        this.name = 'aa'
-      }
-    }
-
-    class bb extends aa {
-      constructor(){
-        super()
-        this.age = 22
-      }
-    }
-
-    class cc extends bb {
-      constructor(){
-        super()
-        console.log(this.name,this.age)
-      }
-    }
-
-    new cc()
+   
   }
 };
 </script>
@@ -45,12 +11,16 @@ export default {
   <div class="about">
     <div>about</div>
     <input />
+    <a href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=APPID&redirect_uri=REDIRECT_URI&response_type=code&scope=SCOPE&state=STATE#wechat_redirect">123</a>
   </div>
 </template>
 
 <style lang="scss" scoped>
+:root {
+  --tqr: orange
+}
 .about {
   height: 100%;
-  // background-color: #fff;
+  color:var(--tqr)
 }
 </style>
